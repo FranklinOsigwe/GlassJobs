@@ -3,6 +3,7 @@ import Banner from "../components/Banner";
 import Card from "../components/Card";
 import Jobs from "./Jobs";
 import SideBar from "../sidebar/SideBar";
+import NewsLetter from "../components/NewsLetter";
 
 const Home = () => {
   const [query, setQuery] = useState("");
@@ -78,7 +79,9 @@ const Home = () => {
         }) =>
           jobLocation.toLowerCase() === selected.toLowerCase() ||
           parseInt(maxPrice) <= parseInt(selected) ||
+          postingDate >= selected || 
           salaryType.toLowerCase() === selected.toLowerCase() ||
+          experienceLevel.toLowerCase() === selected.toLowerCase() ||
           employmentType.toLowerCase() === selected.toLowerCase()
       );
     }
@@ -136,7 +139,9 @@ const Home = () => {
             ""
           )}
         </div>
-        <div className="bg-white p-4 rounded">right</div>
+        <div className="bg-white p-4 rounded">
+          <NewsLetter/>
+        </div>
       </div>
     </div>
   );
