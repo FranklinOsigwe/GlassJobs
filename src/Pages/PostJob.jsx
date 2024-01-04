@@ -6,13 +6,23 @@ function CreateJob() {
   const [selectedOption , setSelectedOption]= useState(null)
    const {
     register,
-    handleSubmit,
+    handleSubmit,reset,
     formState: { errors },
   } = useForm();
 
   const onSubmit = (data) => {
-    data.skills = selectedOption
-    console.log(data);
+    data.skills = selectedOption   
+   fetch('http://localhost:3000/post-job', {
+    method: 'POST',
+    headers : {'content-type' : 'application/json'},
+    body: JSON.stringify(data)
+   }).then(res => res.json()).then((result) => {
+    console.log(result)
+      if(result.acknowledged === true){
+          alert('successfully created')
+      }
+      reset()
+   })
   };
 
   const options = [
@@ -158,7 +168,7 @@ function CreateJob() {
         <input type='email' placeholder='your email' {...register('postedBy ')} className="create-job-input"/>
 
       </div>
-          <input type="submit"  className='block mt-12 bg-blue text-white font-semibold px-8 py-2 rounded-sm cursor-pointer'/>
+          <input type="submit"  className='block mt-12 bg-blue-500 text-white font-semibold px-8 py-2 rounded-sm cursor-pointer'/>
         </form>
       </div>
     </div>
