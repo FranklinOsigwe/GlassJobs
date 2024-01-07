@@ -165,7 +165,7 @@ function CreateJob() {
 
       <div className='w-full'>
         <label className='block mb-2 text-lg'>Posted by</label>
-        <input type='email' placeholder='your email' {...register('postedBy ')} className="create-job-input"/>
+        <input type='email' placeholder='your email' {...register('postedBy')} className="create-job-input"/>
 
       </div>
           <input type="submit"  className='block mt-12 bg-blue-500 text-white font-semibold px-8 py-2 rounded-sm cursor-pointer'/>
