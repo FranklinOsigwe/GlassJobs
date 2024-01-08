@@ -8,7 +8,7 @@ const PageHeader = ({title,path}) => {
                 {title}
             </h2>
 
-            <p className='text-sm text-center '><a href='/'>Path</a>/ </p>
+            <p className='text-sm text-center '><a href='/'>Path</a>/ Salary</p>
         </div>
     </div>
   )
